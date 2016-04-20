@@ -1,0 +1,7 @@
+D:\Edson\Projetos\IntegracaoMELI\MAIN\IntegracaoTeste\IntegracaoTeste.Domain\obj\Debug\IntegracaoTeste.Domain.csprojResolveAssemblyReference.cache
+D:\Edson\Projetos\IntegracaoMELI\MAIN\IntegracaoTeste\IntegracaoTeste.Domain\bin\Debug\IntegracaoTeste.Domain.dll
+D:\Edson\Projetos\IntegracaoMELI\MAIN\IntegracaoTeste\IntegracaoTeste.Domain\bin\Debug\IntegracaoTeste.Domain.pdb
+D:\Edson\Projetos\IntegracaoMELI\MAIN\IntegracaoTeste\IntegracaoTeste.Domain\obj\Debug\IntegracaoTeste.Domain.dll
+D:\Edson\Projetos\IntegracaoMELI\MAIN\IntegracaoTeste\IntegracaoTeste.Domain\obj\Debug\IntegracaoTeste.Domain.pdb
+D:\Edson\Projetos\IntegracaoMELI\MAIN\IntegracaoTeste\IntegracaoTeste.Domain\bin\Debug\AutoMapper.dll
+D:\Edson\Projetos\IntegracaoMELI\MAIN\IntegracaoTeste\IntegracaoTeste.Domain\bin\Debug\System.Reflection.TypeExtensions.dll

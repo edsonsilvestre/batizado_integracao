@@ -1,0 +1,190 @@
+﻿@model IntegracaoTeste.Models.ProductModel
+    
+<div id="page-wrapper">
+
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Anunciar
+                </h1>
+                <ol class="breadcrumb">
+                    <li>
+                        <i class="fa fa-fw fa-file"></i>  <a href="index.html">Produto</a>
+                    </li>
+                    <li class="active">
+                        <i class="fa fa-edit"></i>Anunciar
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+                <!-- /.row -->
+                <div class="row">
+                    <div class="col-lg-6">
+
+                        @using (Html.BeginForm("Anunciar", "Product", FormMethod.Post, new { id = "frmAnunciar" }))
+                        {
+                            <fieldset>
+                                <legend>Dados do Produto</legend>
+                                <table>
+                                    <tr>
+                                        <td><b>Titulo:</b></td>
+                                        <td>&nbsp;@Html.TextBoxFor(x => x.Title, new { @class = "form-control", @maxlength = 50, @size = 300 })</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Descrição:</b></td>
+                                        <td>&nbsp;@Html.TextAreaFor(x => x.Subtitle, new { @class = "form-control", @maxlength = 500 })</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Condição:</b></td>
+                                        <td>&nbsp;@Html.DropDownList("Conditions", (IEnumerable<SelectListItem>)ViewBag.Conditions, new { @class = "form-control" })</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Quantidade Disponível:</b></td>
+                                        <td>&nbsp;@Html.TextBoxFor(x => x.Available_Quantity, new { @class = "form-control", @maxlength = 20 })</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Categoria:</b></td>
+                                        <td>
+                                            &nbsp;@Html.DropDownListFor(x => x.Category_Id, new SelectList(ViewBag.Categories, "Id", "Name"), new { @class = "form-control", id = "ddlCategory1" })
+                                            &nbsp;@Html.DropDownList("Teste", Enumerable.Empty<SelectListItem>(), new { @class = "form-control", id = "ddlCategory2" })
+                                            &nbsp;@Html.DropDownList("Teste", Enumerable.Empty<SelectListItem>(), new { @class = "form-control", id = "ddlCategory3" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Preço:</b></td>
+                                        <td>&nbsp;@Html.TextBoxFor(x => x.Price, new { @class = "form-control", @maxlength = 20 })</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Categoria:</b></td>
+                                        <td>&nbsp;@Html.DropDownListFor(x => x.Currency_Id, new SelectList(ViewBag.Currencies, "Id", "Description"), new { @class = "form-control" })</td>
+                                    </tr>
+                                    <tr><td>&nbsp;</td></tr>
+                                    <tr>
+                                        <td><b>Mercado Pago?:</b></td>
+                                        <td>&nbsp;@Html.RadioButtonFor(x => x.Accepts_Mercadopago, true)&nbsp;Sim&nbsp;@Html.RadioButtonFor(x => x.Accepts_Mercadopago, false)&nbsp;Não</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Listing Type:</b></td>
+                                        <td>
+                                            &nbsp;@Html.DropDownListFor(x => x.Listing_Type_Id, new SelectList(ViewBag.ListingTypes, "Id", "Name"), new { @class = "form-control"})<br />
+                                        </td>
+                                    </tr>
+                                    <tr><td>&nbsp;</td></tr>
+                                    @*<tr>
+                                        <td><b>Imagens:</b></td>
+                                        <td>
+                                            &nbsp;
+                                            @foreach (var picture in Model.Pictures)
+                                            {
+                                                <a href="#" id="pop" onclick="abrirModal('@picture.Url');">
+                                                    <img height=50 width=50 src="@picture.Url">
+                                                </a>
+                                            }
+                                        </td>
+                                    </tr>*@
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="input-group-btn"><button class="btn btn-default" type="button" id="btnPesquisar" onclick="anunciar();">Anunciar</button></span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </fieldset>
+
+                            <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Fechar</span></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src="" id="imagepreview" style="width: 400px; height: 264px;">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container-fluid -->
+
+</div>
+<!-- /#page-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+     $(document).ready(function () {
+         $("#ddlCategory1").change(function () {
+             var dID = $(this).val();
+             $.getJSON("../../Product/LoadCategories", { Id: dID },
+                 function (data) {
+                     var select = $("#ddlCategory2");
+                        select.empty();
+                        select.append($('<option/>', {
+                            value: 0,
+                            text: "Selecione uma categoria"
+                        }));
+                        $.each(data, function (index, itemData) {
+                            select.append($('<option/>', {
+                                value: itemData.Value,
+                                text: itemData.Text
+                            }));
+                        });
+                 });
+            });
+         $("#ddlCategory2").change(function () {
+             var dID = $(this).val();
+             $.getJSON("../../Product/LoadCategories", { Id: dID },
+                 function (data) {
+                     var select = $("#ddlCategory3");
+                     select.empty();
+                     select.append($('<option/>', {
+                         value: 0,
+                         text: "Selecione uma categoria"
+                     }));
+                     $.each(data, function (index, itemData) {
+                         select.append($('<option/>', {
+                             value: itemData.Value,
+                             text: itemData.Text
+                         }));
+                     });
+                 });
+         });
+     });
+
+    function abrirModal(src) {
+        $('#imagepreview').attr('src', '' + src + ''); // here asign the image to the modal when the user click the enlarge link
+        $('#imagemodal').modal('show'); // imagemodal is the id attribute assigned to the bootstrap modal, then i use the show function
+    }
+
+    function anunciar() {
+        $("#frmAnunciar").submit();
+    }
+
+</script>

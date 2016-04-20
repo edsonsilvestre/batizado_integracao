@@ -62,3 +62,15 @@ D:\Edson\Projetos\IntegracaoMELI\MAIN\IntegracaoTeste\IntegracaoTeste\bin\Micros
 D:\Edson\Projetos\IntegracaoMELI\MAIN\IntegracaoTeste\IntegracaoTeste\obj\Debug\IntegracaoTeste.csprojResolveAssemblyReference.cache
 D:\Edson\Projetos\IntegracaoMELI\MAIN\IntegracaoTeste\IntegracaoTeste\obj\Debug\IntegracaoTeste.dll
 D:\Edson\Projetos\IntegracaoMELI\MAIN\IntegracaoTeste\IntegracaoTeste\obj\Debug\IntegracaoTeste.pdb
+D:\Edson\Projetos\IntegracaoMELI\MAIN\IntegracaoTeste\IntegracaoTeste\bin\IntegracaoTeste.Application.dll
+D:\Edson\Projetos\IntegracaoMELI\MAIN\IntegracaoTeste\IntegracaoTeste\bin\IntegracaoTeste.Domain.dll
+D:\Edson\Projetos\IntegracaoMELI\MAIN\IntegracaoTeste\IntegracaoTeste\bin\IntegracaoTeste.Application.pdb
+D:\Edson\Projetos\IntegracaoMELI\MAIN\IntegracaoTeste\IntegracaoTeste\bin\IntegracaoTeste.Domain.pdb
+D:\Edson\Projetos\IntegracaoMELI\MAIN\IntegracaoTeste\IntegracaoTeste\bin\Ninject.dll
+D:\Edson\Projetos\IntegracaoMELI\MAIN\IntegracaoTeste\IntegracaoTeste\bin\Ninject.Web.Common.dll
+D:\Edson\Projetos\IntegracaoMELI\MAIN\IntegracaoTeste\IntegracaoTeste\bin\Ninject.Web.dll
+D:\Edson\Projetos\IntegracaoMELI\MAIN\IntegracaoTeste\IntegracaoTeste\bin\WebActivatorEx.dll
+D:\Edson\Projetos\IntegracaoMELI\MAIN\IntegracaoTeste\IntegracaoTeste\bin\Ninject.xml
+D:\Edson\Projetos\IntegracaoMELI\MAIN\IntegracaoTeste\IntegracaoTeste\bin\Ninject.Web.xml
+D:\Edson\Projetos\IntegracaoMELI\MAIN\IntegracaoTeste\IntegracaoTeste\bin\Ninject.Web.Common.xml
+D:\Edson\Projetos\IntegracaoMELI\MAIN\IntegracaoTeste\IntegracaoTeste\bin\System.Reflection.TypeExtensions.dll

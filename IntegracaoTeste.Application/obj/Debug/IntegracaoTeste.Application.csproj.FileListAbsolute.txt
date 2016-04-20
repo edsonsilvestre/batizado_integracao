@@ -1,0 +1,11 @@
+D:\Edson\Projetos\IntegracaoMELI\MAIN\IntegracaoTeste\IntegracaoTeste.Application\bin\Debug\IntegracaoTeste.Application.dll
+D:\Edson\Projetos\IntegracaoMELI\MAIN\IntegracaoTeste\IntegracaoTeste.Application\bin\Debug\IntegracaoTeste.Application.pdb
+D:\Edson\Projetos\IntegracaoMELI\MAIN\IntegracaoTeste\IntegracaoTeste.Application\bin\Debug\AutoMapper.dll
+D:\Edson\Projetos\IntegracaoMELI\MAIN\IntegracaoTeste\IntegracaoTeste.Application\bin\Debug\IntegracaoTeste.Domain.dll
+D:\Edson\Projetos\IntegracaoMELI\MAIN\IntegracaoTeste\IntegracaoTeste.Application\bin\Debug\net-sdk.dll
+D:\Edson\Projetos\IntegracaoMELI\MAIN\IntegracaoTeste\IntegracaoTeste.Application\bin\Debug\Newtonsoft.Json.dll
+D:\Edson\Projetos\IntegracaoMELI\MAIN\IntegracaoTeste\IntegracaoTeste.Application\bin\Debug\RestSharp.dll
+D:\Edson\Projetos\IntegracaoMELI\MAIN\IntegracaoTeste\IntegracaoTeste.Application\bin\Debug\IntegracaoTeste.Domain.pdb
+D:\Edson\Projetos\IntegracaoMELI\MAIN\IntegracaoTeste\IntegracaoTeste.Application\obj\Debug\IntegracaoTeste.Application.csprojResolveAssemblyReference.cache
+D:\Edson\Projetos\IntegracaoMELI\MAIN\IntegracaoTeste\IntegracaoTeste.Application\obj\Debug\IntegracaoTeste.Application.dll
+D:\Edson\Projetos\IntegracaoMELI\MAIN\IntegracaoTeste\IntegracaoTeste.Application\obj\Debug\IntegracaoTeste.Application.pdb
