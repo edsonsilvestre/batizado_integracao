@@ -70,6 +70,7 @@ namespace IntegracaoTeste.App_Start
             kernel.Bind<ICategoryApp>().To<CategoryApp>();
             kernel.Bind<ICurrencyApp>().To<CurrencyApp>();
             kernel.Bind<IListingTypeApp>().To<ListingTypeApp>();
+            kernel.Bind<IQuestionAnswerApp>().To<QuestionAnswerApp>();
         }        
     }
 }

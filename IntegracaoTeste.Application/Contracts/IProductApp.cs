@@ -12,6 +12,6 @@ namespace IntegracaoTeste.Application.Contracts
     {
             Product GetProduct(string productId);
             List<Product> GetProductsByUserID(string access_token, Meli m, string userID);
-            bool Anunciar(Meli m, Product product);
+            Return Anunciar(Meli m, Product product);
     }
 }

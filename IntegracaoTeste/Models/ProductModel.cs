@@ -13,6 +13,7 @@ using AutoMapper;
 using System.Web.Routing;
 using System.Net.Http.Headers;
 using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
 
 namespace IntegracaoTeste.Models
 {
@@ -23,9 +24,11 @@ namespace IntegracaoTeste.Models
         public string Title { get; set; }
         public string Subtitle { get; set; }
         public string Condition { get; set; }
+        [UIHint("NumberTemplate")]
         public Int32 Available_Quantity { get; set; }
-        //public List<Picture> Pictures { get; set; }
+        public List<Picture> Pictures { get; set; }
         public string Category_Id { get; set; }
+        [UIHint("NumberTemplate")]
         public double Price { get; set; }
         public string Currency_Id { get; set; }
         public bool Accepts_Mercadopago { get; set; }

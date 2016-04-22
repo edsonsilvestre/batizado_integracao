@@ -51,6 +51,7 @@
                                 @Html.ActionLink("Anunciar", "Announce", "Product", new { code = Request.QueryString["code"] }, null)
                             </li>
                         </ul>
+                        @Html.ActionLink("Perguntas e Respostas", "QuestionAnswer", "QuestionAnswer", new { code = Request.QueryString["code"] }, null)
                     </li>
                 </ul>
             </div>
@@ -59,11 +60,73 @@
 
         @RenderBody()
 
-    <!-- /#wrapper -->
-    <!-- jQuery -->
-    <script src="~/js/jquery.js"></script>
+        <div class="modal fade" id="mensagemModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="z-index: 100001;">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="tituloMensagemModal"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="alert alert-success" role="alert">
+                            <h4 id="conteudoMensagemModal"></h4>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="botaoOkMensagemModal" class="btn btn-default" data-dismiss="modal">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="~/js/bootstrap.min.js"></script>
+        <div class="modal fade" id="mensagemModalErro" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="z-index: 100001;">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="tituloMensagemModalErro"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="alert alert-danger" role="alert">
+                            <h4 id="conteudoMensagemModalErro"></h4>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="botaoOkMensagemModal" class="btn btn-default" data-dismiss="modal">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <!-- /#wrapper -->
+        <!-- jQuery -->
+        <script src="~/js/jquery.js"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="~/js/bootstrap.min.js"></script>
+
+        <script>
+            $(document).ready(function () {
+                if ('@TempData["message"]' != '') {
+                    var mensagem = '@TempData["message"]';
+                    exibirMensagem("Mensagem", mensagem);
+            }
+            });
+
+            if ('@TempData["error"]' != '') {
+                var erro = '@TempData["error"]';
+                exibirMensagemErro("Mensagem de Erro", erro);
+            }
+
+            function exibirMensagem(titulo, conteudo) {
+                $("#tituloMensagemModal").html(titulo);
+                $("#conteudoMensagemModal").html(conteudo);
+                $("#mensagemModal").modal('show');
+            }
+
+            function exibirMensagemErro(titulo, conteudo) {
+                $("#tituloMensagemModalErro").html(titulo);
+                $("#conteudoMensagemModalErro").html(conteudo);
+                $("#mensagemModalErro").modal('show');
+            }
+        </script>

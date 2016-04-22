@@ -31,65 +31,83 @@
 
                         @using (Html.BeginForm("Anunciar", "Product", FormMethod.Post, new { id = "frmAnunciar" }))
                         {
+                            @Html.HiddenFor(x => x.Category_Id, new { @Id = "hdnCategory" });
+
                             <fieldset>
                                 <legend>Dados do Produto</legend>
                                 <table>
                                     <tr>
-                                        <td><b>Titulo:</b></td>
-                                        <td>&nbsp;@Html.TextBoxFor(x => x.Title, new { @class = "form-control", @maxlength = 50, @size = 300 })</td>
+                                        <td class="label_size"><b>Titulo:</b></td>
+                                        <td>&nbsp;@Html.TextBoxFor(x => x.Title, new { @class = "form-control field_size", @maxlength = 50, @size = 300, id = "txtTitle" })<br /></td>
+                                        <td><span id="span_Title" class="error"><img class="image" src="~/images/redx-th.png" /></span></td>
                                     </tr>
                                     <tr>
                                         <td><b>Descrição:</b></td>
-                                        <td>&nbsp;@Html.TextAreaFor(x => x.Subtitle, new { @class = "form-control", @maxlength = 500 })</td>
+                                        <td>&nbsp;@Html.TextAreaFor(x => x.Subtitle, new { @class = "form-control field_size", @maxlength = 500, id = "txtSubtitle" })<br /></td>
+                                        <td><span id="span_Subtitle" class="error"><img class="image" src="~/images/redx-th.png" /></span></td>
                                     </tr>
                                     <tr>
                                         <td><b>Condição:</b></td>
-                                        <td>&nbsp;@Html.DropDownList("Conditions", (IEnumerable<SelectListItem>)ViewBag.Conditions, new { @class = "form-control" })</td>
+                                        <td><div id="divCondition">&nbsp;@Html.DropDownListFor(x => x.Condition, (IEnumerable<SelectListItem>)ViewBag.Conditions, new { @class = "form-control field_size", id = "ddlCondition" })<br /></div></td>
+                                        <td><span id="span_Condition" class="error"><img class="image" src="~/images/redx-th.png" /></span></td>
                                     </tr>
                                     <tr>
                                         <td><b>Quantidade Disponível:</b></td>
-                                        <td>&nbsp;@Html.TextBoxFor(x => x.Available_Quantity, new { @class = "form-control", @maxlength = 20 })</td>
+                                        <td>&nbsp;@Html.TextBoxFor(x => x.Available_Quantity, new { @class = "form-control field_size", @maxlength = 20, id = "txtAvailableQuantity", type = "number" })<br /></td>
+                                        <td><span id="span_Available_Quantity" class="error"><img class="image" src="~/images/redx-th.png" /></span></td>
                                     </tr>
                                     <tr>
                                         <td><b>Categoria:</b></td>
                                         <td>
-                                            &nbsp;@Html.DropDownListFor(x => x.Category_Id, new SelectList(ViewBag.Categories, "Id", "Name"), new { @class = "form-control", id = "ddlCategory1" })
-                                            &nbsp;@Html.DropDownList("Teste", Enumerable.Empty<SelectListItem>(), new { @class = "form-control", id = "ddlCategory2" })
-                                            &nbsp;@Html.DropDownList("Teste", Enumerable.Empty<SelectListItem>(), new { @class = "form-control", id = "ddlCategory3" })
+                                            &nbsp;@Html.DropDownList("ddlCategory1", new SelectList(ViewBag.Categories, "Id", "Name"), new { @class = "form-control field_size" })
+                                            &nbsp;@Html.DropDownList("ddlCategory2", Enumerable.Empty<SelectListItem>(), new { @class = "form-control field_size", id = "ddlCategory2" })
+                                            &nbsp;@Html.DropDownList("ddlCategory3", Enumerable.Empty<SelectListItem>(), new { @class = "form-control field_size", id = "ddlCategory3" })
+                                            &nbsp;@Html.DropDownList("ddlCategory4", Enumerable.Empty<SelectListItem>(), new { @class = "form-control field_size", id = "ddlCategory4" })
+                                            &nbsp;@Html.DropDownList("ddlCategory5", Enumerable.Empty<SelectListItem>(), new { @class = "form-control field_size", id = "ddlCategory5" })
+                                            &nbsp;@Html.DropDownList("ddlCategory6", Enumerable.Empty<SelectListItem>(), new { @class = "form-control field_size", id = "ddlCategory6" })
+                                            &nbsp;@Html.DropDownList("ddlCategory7", Enumerable.Empty<SelectListItem>(), new { @class = "form-control field_size", id = "ddlCategory7" })
+                                            &nbsp;@Html.DropDownList("ddlCategory8", Enumerable.Empty<SelectListItem>(), new { @class = "form-control field_size", id = "ddlCategory8" })
+                                            &nbsp;@Html.DropDownList("ddlCategory9", Enumerable.Empty<SelectListItem>(), new { @class = "form-control field_size", id = "ddlCategory9" })
+                                            &nbsp;@Html.DropDownList("ddlCategory10", Enumerable.Empty<SelectListItem>(), new { @class = "form-control field_size", id = "ddlCategory10" })
+                                            <br />
                                         </td>
+                                        <td><span id="span_ddlCategory1" class="error"><img class="image" src="~/images/redx-th.png" /></span></td>
                                     </tr>
                                     <tr>
                                         <td><b>Preço:</b></td>
-                                        <td>&nbsp;@Html.TextBoxFor(x => x.Price, new { @class = "form-control", @maxlength = 20 })</td>
+                                        <td>&nbsp;@Html.TextBoxFor(x => x.Price, new { @class = "form-control field_size", @maxlength = 20, id = "txtPrice", type = "number" })<br /></td>
+                                        <td><span id="span_Price" class="error"><img class="image" src="~/images/redx-th.png" /></span></td>
                                     </tr>
                                     <tr>
-                                        <td><b>Categoria:</b></td>
-                                        <td>&nbsp;@Html.DropDownListFor(x => x.Currency_Id, new SelectList(ViewBag.Currencies, "Id", "Description"), new { @class = "form-control" })</td>
+                                        <td><b>Moeda:</b></td>
+                                        <td>&nbsp;@Html.DropDownListFor(x => x.Currency_Id, new SelectList(ViewBag.Currencies, "Id", "Description"), new { @class = "form-control field_size", id = "ddlCurrency" })<br /></td>
+                                        <td><span id="span_Currency_Id" class="error"><img class="image" src="~/images/redx-th.png" /></span></td>
                                     </tr>
                                     <tr><td>&nbsp;</td></tr>
                                     <tr>
                                         <td><b>Mercado Pago?:</b></td>
-                                        <td>&nbsp;@Html.RadioButtonFor(x => x.Accepts_Mercadopago, true)&nbsp;Sim&nbsp;@Html.RadioButtonFor(x => x.Accepts_Mercadopago, false)&nbsp;Não</td>
+                                        <td>&nbsp;@Html.RadioButtonFor(x => x.Accepts_Mercadopago, true, new { @checked = true } )&nbsp;Sim&nbsp;@Html.RadioButtonFor(x => x.Accepts_Mercadopago, false)&nbsp;Não<br /></td>
                                     </tr>
                                     <tr>
-                                        <td><b>Listing Type:</b></td>
+                                        <td><b>Tipo de Anúncio:</b></td>
                                         <td>
-                                            &nbsp;@Html.DropDownListFor(x => x.Listing_Type_Id, new SelectList(ViewBag.ListingTypes, "Id", "Name"), new { @class = "form-control"})<br />
+                                            &nbsp;@Html.DropDownListFor(x => x.Listing_Type_Id, new SelectList(ViewBag.ListingTypes, "Id", "Name"), new { @class = "form-control field_size", id = "ddlTipoAnuncio" })<br />
                                         </td>
+                                        <td><span id="span_Listing_Type_Id" class="error"><img class="image" src="~/images/redx-th.png" /></span></td>
                                     </tr>
                                     <tr><td>&nbsp;</td></tr>
                                     @*<tr>
-                                        <td><b>Imagens:</b></td>
-                                        <td>
-                                            &nbsp;
-                                            @foreach (var picture in Model.Pictures)
-                                            {
-                                                <a href="#" id="pop" onclick="abrirModal('@picture.Url');">
-                                                    <img height=50 width=50 src="@picture.Url">
-                                                </a>
-                                            }
-                                        </td>
-                                    </tr>*@
+                <td><b>Imagens:</b></td>
+                <td>
+                    &nbsp;
+                    @foreach (var picture in Model.Pictures)
+                    {
+                        <a href="#" id="pop" onclick="abrirModal('@picture.Url');">
+                            <img height=50 width=50 src="@picture.Url">
+                        </a>
+                    }
+                </td>
+            </tr>*@
                                     <tr>
                                         <td>&nbsp;</td>
                                     </tr>
@@ -135,13 +153,217 @@
 </div>
 <!-- /#page-wrapper -->
 
+<style>
+    .invalid{
+	    border: 2px solid red;
+    }
+
+    .valid{
+	    border: 2px solid green;
+    }
+    .error{
+	    display: none;
+	    margin-left: 10px;
+        width: 2000px;
+    }		
+
+    .error_show{
+	    color: red;
+	    margin-left: 10px;
+        width: 2000px;
+    }
+
+    .label_size{
+        width: 200px;
+    }
+
+    .field_size{
+        width: 300px;
+    }
+
+    .error_label_size{
+	    display: none;
+	    margin-left: 10px;
+        width: 2000px;
+    }
+
+    .image {
+        width: 25px;
+        height: 25px;
+        align-items: baseline;
+    }
+
+</style> 
+
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 <script type="text/javascript">
 
-     $(document).ready(function () {
-         $("#ddlCategory1").change(function () {
+    function validateFields() {
+
+        var valid = true;
+
+        var input = $("#txtTitle");
+        var is_name = input.val();
+        var error_element = $("#span_Title");
+        if (is_name) { error_element.removeClass("error_show").addClass("error"); }
+        else { error_element.removeClass("error").addClass("error_show"); valid = false; }
+
+        input = $("#txtSubtitle");
+        is_name = input.val();
+        error_element = $("#span_Subtitle");
+        if (is_name) { error_element.removeClass("error_show").addClass("error"); }
+        else { error_element.removeClass("error").addClass("error_show"); valid = false; }
+
+        error_element = $("#span_Condition");
+        if ($("#ddlCondition").val() == "") {
+            error_element.removeClass("error").addClass("error_show");
+            valid = false;
+        }
+        else {
+            error_element.removeClass("error_show").addClass("error");
+        }
+
+        input = $("#txtAvailableQuantity");
+        is_name = input.val();
+        error_element = $("#span_Available_Quantity");
+        if (is_name) { error_element.removeClass("error_show").addClass("error"); }
+        else { error_element.removeClass("error").addClass("error_show"); valid = false; }
+
+        input = $("#txtPrice");
+        is_name = input.val();
+        error_element = $("#span_Price");
+        if (is_name) { error_element.removeClass("error_show").addClass("error"); }
+        else { error_element.removeClass("error").addClass("error_show"); valid = false; }
+
+        error_element = $("#span_Currency_Id");
+        if ($("#ddlCurrency").val() == "") {
+            error_element.removeClass("error").addClass("error_show");
+            valid = false;
+        }
+        else {
+            error_element.removeClass("error_show").addClass("error");
+        }
+
+        error_element = $("#span_Listing_Type_Id");
+        if ($("#ddlTipoAnuncio").val() == "") {
+            error_element.removeClass("error").addClass("error_show");
+            valid = false;
+        }
+        else {
+            error_element.removeClass("error_show").addClass("error");
+        }
+
+        error_element = $("#span_ddlCategory1");
+        if ($("#ddlCategory1").val() == "") {
+            error_element.removeClass("error").addClass("error_show");
+            valid = false;
+        }
+        else {
+            error_element.removeClass("error_show").addClass("error");
+        }
+
+        return valid;
+    }
+
+    $(document).ready(function () {
+
+        $("#ddlCategory2").css('display', 'none');
+        $("#ddlCategory3").css('display', 'none');
+        $("#ddlCategory4").css('display', 'none');
+        $("#ddlCategory5").css('display', 'none');
+        $("#ddlCategory6").css('display', 'none');
+        $("#ddlCategory7").css('display', 'none');
+        $("#ddlCategory8").css('display', 'none');
+        $("#ddlCategory9").css('display', 'none');
+        $("#ddlCategory10").css('display', 'none');
+
+        $('#txtTitle').on('input', function () {
+            
+            var input = $(this);
+            var is_name = input.val();
+            var error_element = $("#span_Title");
+            if (is_name) { error_element.removeClass("error_show").addClass("error"); }
+            else { error_element.removeClass("error").addClass("error_show"); }
+        });
+
+        $('#txtSubtitle').on('input', function () {
+            var input = $(this);
+            var is_name = input.val();
+            var error_element = $("#span_Subtitle");
+            if (is_name) { error_element.removeClass("error_show").addClass("error"); }
+            else { error_element.removeClass("error").addClass("error_show"); }
+        });
+
+        $("#ddlCondition").change(function () {
+            var error_element = $("#span_Condition");
+            if ($(this).val() == "") {
+                error_element.removeClass("error").addClass("error_show");
+            }
+            else {
+                error_element.removeClass("error_show").addClass("error");
+            }
+        });
+
+        $('#txtAvailableQuantity').on('input', function () {
+            var input = $(this);
+            var is_name = input.val();
+            var error_element = $("#span_Available_Quantity");
+            if (is_name) { error_element.removeClass("error_show").addClass("error"); }
+            else { error_element.removeClass("error").addClass("error_show"); }
+        });
+
+        $('#txtPrice').on('input', function () {
+            var input = $(this);
+            var is_name = input.val();
+            var error_element = $("#span_Price");
+            if (is_name) { error_element.removeClass("error_show").addClass("error"); }
+            else { error_element.removeClass("error").addClass("error_show"); }
+        });
+
+        $("#ddlCurrency").change(function () {
+            var error_element = $("#span_Currency_Id");
+            if ($(this).val() == "") {
+                error_element.removeClass("error").addClass("error_show");
+            }
+            else {
+                error_element.removeClass("error_show").addClass("error");
+            }
+        });
+
+        $("#ddlTipoAnuncio").change(function () {
+            var error_element = $("#span_Listing_Type_Id");
+            if ($(this).val() == "") {
+                error_element.removeClass("error").addClass("error_show");
+            }
+            else {
+                error_element.removeClass("error_show").addClass("error");
+            }
+        });
+
+        $("#ddlCategory1").change(function () {
              var dID = $(this).val();
+
+             var error_element = $("#span_ddlCategory1");
+             if (dID == "") {
+                 error_element.removeClass("error").addClass("error_show"); 
+             }
+             else {
+                 error_element.removeClass("error_show").addClass("error");
+             }
+
+             $("#hdnCategory").val(dID);
+
+            $("#ddlCategory2").css('display', 'none');
+            $("#ddlCategory3").css('display', 'none');
+            $("#ddlCategory4").css('display', 'none');
+            $("#ddlCategory5").css('display', 'none');
+            $("#ddlCategory6").css('display', 'none');
+            $("#ddlCategory7").css('display', 'none');
+            $("#ddlCategory8").css('display', 'none');
+            $("#ddlCategory9").css('display', 'none');
+            $("#ddlCategory10").css('display', 'none');
+
              $.getJSON("../../Product/LoadCategories", { Id: dID },
                  function (data) {
                      var select = $("#ddlCategory2");
@@ -156,11 +378,31 @@
                                 text: itemData.Text
                             }));
                         });
+                        if($('#ddlCategory2 > option').length > 1)
+                        {
+                            $("#ddlCategory2").css('display', 'block');
+                        }
+                        else
+                        {
+                            $("#ddlCategory2").css('display', 'none');
+                        }
                  });
             });
          $("#ddlCategory2").change(function () {
              var dID = $(this).val();
-             $.getJSON("../../Product/LoadCategories", { Id: dID },
+
+             $("#hdnCategory").val(dID);
+
+                 $("#ddlCategory3").css('display', 'none');
+                 $("#ddlCategory4").css('display', 'none');
+                 $("#ddlCategory5").css('display', 'none');
+                 $("#ddlCategory6").css('display', 'none');
+                 $("#ddlCategory7").css('display', 'none');
+                 $("#ddlCategory8").css('display', 'none');
+                 $("#ddlCategory9").css('display', 'none');
+                 $("#ddlCategory10").css('display', 'none');
+
+                 $.getJSON("../../Product/LoadCategories", { Id: dID },
                  function (data) {
                      var select = $("#ddlCategory3");
                      select.empty();
@@ -174,17 +416,250 @@
                              text: itemData.Text
                          }));
                      });
+                     if ($('#ddlCategory3 > option').length > 1) {
+                         $("#ddlCategory3").css('display', 'block');
+                     }
+                     else {
+                         $("#ddlCategory3").css('display', 'none');
+                     }
                  });
+         });
+         $("#ddlCategory3").change(function () {
+             var dID = $(this).val();
+
+             $("#hdnCategory").val(dID);
+
+             $("#ddlCategory4").css('display', 'none');
+                 $("#ddlCategory5").css('display', 'none');
+                 $("#ddlCategory6").css('display', 'none');
+                 $("#ddlCategory7").css('display', 'none');
+                 $("#ddlCategory8").css('display', 'none');
+                 $("#ddlCategory9").css('display', 'none');
+                 $("#ddlCategory10").css('display', 'none');
+
+                 $.getJSON("../../Product/LoadCategories", { Id: dID },
+                 function (data) {
+                     var select = $("#ddlCategory4");
+                     select.empty();
+                     select.append($('<option/>', {
+                         value: 0,
+                         text: "Selecione uma categoria"
+                     }));
+                     $.each(data, function (index, itemData) {
+                         select.append($('<option/>', {
+                             value: itemData.Value,
+                             text: itemData.Text
+                         }));
+                     });
+                     if ($('#ddlCategory4 > option').length > 1) {
+                         $("#ddlCategory4").css('display', 'block');
+                     }
+                     else {
+                         $("#ddlCategory4").css('display', 'none');
+                     }
+                 });
+         });
+         $("#ddlCategory4").change(function () {
+             var dID = $(this).val();
+             $("#hdnCategory").val(dID);
+
+                 $("#ddlCategory5").css('display', 'none');
+                 $("#ddlCategory6").css('display', 'none');
+                 $("#ddlCategory7").css('display', 'none');
+                 $("#ddlCategory8").css('display', 'none');
+                 $("#ddlCategory9").css('display', 'none');
+                 $("#ddlCategory10").css('display', 'none');
+
+                 $.getJSON("../../Product/LoadCategories", { Id: dID },
+                 function (data) {
+                     var select = $("#ddlCategory5");
+                     select.empty();
+                     select.append($('<option/>', {
+                         value: 0,
+                         text: "Selecione uma categoria"
+                     }));
+                     $.each(data, function (index, itemData) {
+                         select.append($('<option/>', {
+                             value: itemData.Value,
+                             text: itemData.Text
+                         }));
+                     });
+                     if ($('#ddlCategory5 > option').length > 1) {
+                         $("#ddlCategory5").css('display', 'block');
+                     }
+                     else {
+                         $("#ddlCategory5").css('display', 'none');
+                     }
+                 });
+         });
+         $("#ddlCategory5").change(function () {
+             var dID = $(this).val();
+             $("#hdnCategory").val(dID);
+
+                 $("#ddlCategory6").css('display', 'none');
+                 $("#ddlCategory7").css('display', 'none');
+                 $("#ddlCategory8").css('display', 'none');
+                 $("#ddlCategory9").css('display', 'none');
+                 $("#ddlCategory10").css('display', 'none');
+
+                 $.getJSON("../../Product/LoadCategories", { Id: dID },
+                 function (data) {
+                     var select = $("#ddlCategory6");
+                     select.empty();
+                     select.append($('<option/>', {
+                         value: 0,
+                         text: "Selecione uma categoria"
+                     }));
+                     $.each(data, function (index, itemData) {
+                         select.append($('<option/>', {
+                             value: itemData.Value,
+                             text: itemData.Text
+                         }));
+                     });
+                     if ($('#ddlCategory6 > option').length > 1) {
+                         $("#ddlCategory6").css('display', 'block');
+                     }
+                     else {
+                         $("#ddlCategory6").css('display', 'none');
+                     }
+                 });
+         });
+         $("#ddlCategory6").change(function () {
+             var dID = $(this).val();
+             $("#hdnCategory").val(dID);
+
+                 $("#ddlCategory7").css('display', 'none');
+                 $("#ddlCategory8").css('display', 'none');
+                 $("#ddlCategory9").css('display', 'none');
+                 $("#ddlCategory10").css('display', 'none');
+
+                 $.getJSON("../../Product/LoadCategories", { Id: dID },
+                 function (data) {
+                     var select = $("#ddlCategory7");
+                     select.empty();
+                     select.append($('<option/>', {
+                         value: 0,
+                         text: "Selecione uma categoria"
+                     }));
+                     $.each(data, function (index, itemData) {
+                         select.append($('<option/>', {
+                             value: itemData.Value,
+                             text: itemData.Text
+                         }));
+                     });
+                     if ($('#ddlCategory7 > option').length > 1) {
+                         $("#ddlCategory7").css('display', 'block');
+                     }
+                     else {
+                         $("#ddlCategory7").css('display', 'none');
+                     }
+                 });
+         });
+         $("#ddlCategory7").change(function () {
+
+             var dID = $(this).val();
+             $("#hdnCategory").val(dID);
+
+
+                 $("#ddlCategory8").css('display', 'none');
+                 $("#ddlCategory9").css('display', 'none');
+                 $("#ddlCategory10").css('display', 'none');
+
+                 $.getJSON("../../Product/LoadCategories", { Id: dID },
+                 function (data) {
+                     var select = $("#ddlCategory8");
+                     select.empty();
+                     select.append($('<option/>', {
+                         value: 0,
+                         text: "Selecione uma categoria"
+                     }));
+                     $.each(data, function (index, itemData) {
+                         select.append($('<option/>', {
+                             value: itemData.Value,
+                             text: itemData.Text
+                         }));
+                     });
+                     if ($('#ddlCategory8 > option').length > 1) {
+                         $("#ddlCategory8").css('display', 'block');
+                     }
+                     else {
+                         $("#ddlCategory8").css('display', 'none');
+                     }
+                 });
+         });
+         $("#ddlCategory8").change(function () {
+             var dID = $(this).val();
+             $("#hdnCategory").val(dID);
+
+
+             $("#ddlCategory9").css('display', 'none');
+             $("#ddlCategory10").css('display', 'none');
+
+             $.getJSON("../../Product/LoadCategories", { Id: dID },
+                 function (data) {
+                     var select = $("#ddlCategory9");
+                     select.empty();
+                     select.append($('<option/>', {
+                         value: 0,
+                         text: "Selecione uma categoria"
+                     }));
+                     $.each(data, function (index, itemData) {
+                         select.append($('<option/>', {
+                             value: itemData.Value,
+                             text: itemData.Text
+                         }));
+                     });
+                     if ($('#ddlCategory9 > option').length > 1) {
+                         $("#ddlCategory9").css('display', 'block');
+                     }
+                     else {
+                         $("#ddlCategory9").css('display', 'none');
+                     }
+                 });
+         });
+         $("#ddlCategory9").change(function () {
+             var dID = $(this).val();
+             $("#hdnCategory").val(dID);
+
+             $("#ddlCategory10").css('display', 'none');
+
+             $.getJSON("../../Product/LoadCategories", { Id: dID },
+                 function (data) {
+                     var select = $("#ddlCategory10");
+                     select.empty();
+                     select.append($('<option/>', {
+                         value: 0,
+                         text: "Selecione uma categoria"
+                     }));
+                     $.each(data, function (index, itemData) {
+                         select.append($('<option/>', {
+                             value: itemData.Value,
+                             text: itemData.Text
+                         }));
+                     });
+                 });
+             if ($('#ddlCategory10 > option').length > 1) {
+                 $("#ddlCategory10").css('display', 'block');
+             }
+             else {
+                 $("#ddlCategory10").css('display', 'none');
+             }
          });
      });
 
     function abrirModal(src) {
-        $('#imagepreview').attr('src', '' + src + ''); // here asign the image to the modal when the user click the enlarge link
-        $('#imagemodal').modal('show'); // imagemodal is the id attribute assigned to the bootstrap modal, then i use the show function
+        $('#imagepreview').attr('src', '' + src + ''); 
+        $('#imagemodal').modal('show'); 
     }
 
     function anunciar() {
-        $("#frmAnunciar").submit();
+        
+        if (!validateFields()) {
+            event.preventDefault();
+        }
+        else {
+            $("#frmAnunciar").submit();
+        }
     }
 
 </script>

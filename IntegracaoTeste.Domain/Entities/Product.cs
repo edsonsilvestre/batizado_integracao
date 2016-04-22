@@ -14,7 +14,7 @@ namespace IntegracaoTeste.Domain.Entities
         public string Subtitle { get; set; }
         public string Condition { get; set; }
         public Int32 Available_Quantity { get; set; }
-        //public List<Picture> Pictures { get; set; }
+        public List<Picture> Pictures { get; set; }
         public string Category_Id { get; set; }
         public double Price { get; set; }
         public string Currency_Id { get; set; }

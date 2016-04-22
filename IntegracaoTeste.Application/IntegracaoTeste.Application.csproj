@@ -55,6 +55,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="QuestionAnswerApp.cs" />
+    <Compile Include="Contracts\IQuestionAnswerApp.cs" />
     <Compile Include="ListingTypeApp.cs" />
     <Compile Include="Contracts\IListingTypeApp.cs" />
     <Compile Include="CurrencyApp.cs" />

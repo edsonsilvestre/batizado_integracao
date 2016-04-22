@@ -66,7 +66,7 @@ namespace IntegracaoTeste.Application
             return produtos;
         }
 
-        public bool Anunciar(Meli m, Entity.Product product)
+        public Entity.Return Anunciar(Meli m, Entity.Product product)
         {
             try
             {
@@ -92,11 +92,21 @@ namespace IntegracaoTeste.Application
                     streamWriter.Flush();
                 }
 
+                string result;
+
                 var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
                 using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
                 {
-                    var result = streamReader.ReadToEnd();
+                    result = streamReader.ReadToEnd();
                 }
+
+                Entity.Product produto = JsonConvert.DeserializeObject<Entity.Product>(result);
+
+                Entity.Return retorno = new Entity.Return();
+
+                retorno.Message = "OK" + ";" + produto.Id;
+
+                return retorno;
             }
             catch (WebException exception)
             {
@@ -106,9 +116,13 @@ namespace IntegracaoTeste.Application
                 {
                     responseText = reader.ReadToEnd();
                 }
-            }
+                
+                Entity.Return retorno = JsonConvert.DeserializeObject<Entity.Return>(responseText);
 
-            return true;
+                retorno.Message = "NOK" + ";" + retorno.Message;
+
+                return retorno;
+            }
         }
     }
 }

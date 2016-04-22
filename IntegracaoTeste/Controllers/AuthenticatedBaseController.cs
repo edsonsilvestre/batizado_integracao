@@ -36,10 +36,7 @@ namespace IntegracaoBatizado.Controllers
         {
             base.OnActionExecuting(filterContext);
 
-            if (Request.QueryString["code"] != null)
-                m.Authorize(Request.QueryString["code"], "http://localhost:3000");
-            else
-                m.Authorize(SessionProfile.Usuario.code, "http://localhost:3000");
+            Autorizar(m);
 
             if (SessionProfile.Usuario == null || SessionProfile.Usuario.Id == null)
             {
@@ -54,6 +51,21 @@ namespace IntegracaoBatizado.Controllers
             Meli m = new Meli(clientId, clientSecret);
 
             return m.GetAuthUrl("http://localhost:3000");
+        }
+
+        public void Autorizar(Meli m)
+        {
+            try
+            {
+                if (Request.QueryString["code"] != null)
+                    m.Authorize(Request.QueryString["code"], "http://localhost:3000");
+                else
+                    m.Authorize(SessionProfile.Usuario.code, "http://localhost:3000");
+            }
+            catch (AuthorizationException e)
+            {
+                Response.Redirect("../index.aspx");
+            }
         }
     }
 }
