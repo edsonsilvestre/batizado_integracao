@@ -37,5 +37,24 @@ namespace IntegracaoTeste.Application
 
             return user;
         }
+
+        public Entity.User GetUserById(Meli m, string Id)
+        {
+            var ps = new List<Parameter>();
+
+            var p = new Parameter();
+            p.Name = "access_token";
+            p.Value = m.AccessToken;
+            ps.Add(p);
+
+            //https://api.mercadolibre.com/users/me
+            IRestResponse response = m.Get("/users/" + Id, ps);
+
+            Entity.User user = new Entity.User();
+
+            user = JsonConvert.DeserializeObject<Entity.User>(response.Content);
+
+            return user;
+        }
     }
 }

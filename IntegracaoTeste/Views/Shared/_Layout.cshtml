@@ -38,17 +38,50 @@
                 </button>
                 <a class="navbar-brand">Integração Batizado</a>
             </div>
+            <ul class="nav navbar-right top-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-bell"></i> <b class="caret"></b><br /><span id="spanBadge" class="badge badge-notify"></span></a>
+                    <ul id="ulBadges" class="dropdown-menu alert-dropdown">
+                        @*<li>
+                            <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">View All</a>
+                        </li>*@
+                    </ul>
+                </li>
+                
+            </ul>
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo" class="collapsed" aria-expanded="false"><i class="fa fa-fw fa-file"></i> Produto <i class="fa fa-fw fa-caret-down"></i></a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo" class="collapsed" aria-expanded="false"> Produto <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse" aria-expanded="false" style="height: 0px;">
                             <li>
-                                @Html.ActionLink("Pesquisar", "Search", "Product", new { code = Request.QueryString["code"] }, null)
+                                @Html.ActionLink("Anunciar", "Announce", "Product", new { code = Request.QueryString["code"] }, null)
                             </li>
                             <li>
-                                @Html.ActionLink("Anunciar", "Announce", "Product", new { code = Request.QueryString["code"] }, null)
+                                @Html.ActionLink("Meus Produtos", "Main", "Product", new { code = Request.QueryString["code"] }, null)
+                            </li>
+                            <li>
+                                @Html.ActionLink("Pesquisar", "Search", "Product", new { code = Request.QueryString["code"] }, null)
                             </li>
                         </ul>
                         @Html.ActionLink("Perguntas e Respostas", "QuestionAnswer", "QuestionAnswer", new { code = Request.QueryString["code"] }, null)
@@ -110,7 +143,9 @@
                 if ('@TempData["message"]' != '') {
                     var mensagem = '@TempData["message"]';
                     exibirMensagem("Mensagem", mensagem);
-            }
+                }
+
+                updateBadge();
             });
 
             if ('@TempData["error"]' != '') {
@@ -129,4 +164,21 @@
                 $("#conteudoMensagemModalErro").html(conteudo);
                 $("#mensagemModalErro").modal('show');
             }
+
+            function updateBadge() {
+                var obj = $("#spanBadge");
+                var obj_ul = $("#ulBadges");
+
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("Bagde", "Home")',
+                    cache: false,
+                    dataType: 'json',
+                    success: function (result) {
+                        obj.text(result.Cont);
+                        obj_ul.html(result.Html);
+                    }
+                });
+            }
+
         </script>

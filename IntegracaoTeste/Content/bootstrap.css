@@ -4899,6 +4899,9 @@ textarea.input-group-sm > .input-group-btn > .btn {
   vertical-align: baseline;
   background-color: #999999;
   border-radius: 10px;
+   position:relative;
+   top: -20px;
+   left: -35px;
 }
 
 .badge:empty {

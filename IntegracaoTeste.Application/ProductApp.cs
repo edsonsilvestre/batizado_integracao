@@ -47,21 +47,26 @@ namespace IntegracaoTeste.Application
             return m;
         }
 
-        public List<Entity.Product> GetProductsByUserID(string access_token, Meli m, string userID)
+        public Entity.ProductList GetProductsByUserID(Meli m, string userID)
         {
+            var ps = new List<Parameter>();
+
             var p = new Parameter();
             p.Name = "access_token";
             p.Value = m.AccessToken;
-
-            var ps = new List<Parameter>();
             ps.Add(p);
 
+            p = new Parameter();
+            p.Name = "seller_id";
+            p.Value = userID;
+            ps.Add(p);
+                        
             //https://api.mercadolibre.com/
-            IRestResponse response = m.Get("/sites/MLA/search?seller_id=" + userID, ps);
+            IRestResponse response = m.Get("/sites/MLA/search", ps);
 
-            List<Entity.Product> produtos = new List<Entity.Product>();
+            Entity.ProductList produtos = new Entity.ProductList();
 
-            //produtos = JsonConvert.DeserializeObject<List<Entity.Product>>(response.Content);
+            produtos = JsonConvert.DeserializeObject<Entity.ProductList>(response.Content);
 
             return produtos;
         }

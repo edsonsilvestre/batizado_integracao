@@ -16,7 +16,7 @@ using MercadoLibre.SDK;
 using RestSharp;
 using IntegracaoTeste.Sessions;
 
-namespace IntegracaoBatizado.Controllers
+namespace IntegracaoTeste.Controllers
 {
     public class AuthenticatedBaseController : Controller
     {

@@ -11,5 +11,6 @@ namespace IntegracaoTeste.Application.Contracts
     public interface IUserApp
     {
         User GetMyUser(Meli m);
+        User GetUserById(Meli m, string Id);
     }
 }

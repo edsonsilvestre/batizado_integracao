@@ -11,5 +11,7 @@ namespace IntegracaoTeste.Application.Contracts
     public interface IQuestionAnswerApp
     {
         QuestionAnswer GetQuestionAnswerBySellerId(Meli m, string Id);
+        Question GetQuestionById(Meli m, string Id);
+        Return Answer(Meli m, string Id, string Descricao);
     }
 }

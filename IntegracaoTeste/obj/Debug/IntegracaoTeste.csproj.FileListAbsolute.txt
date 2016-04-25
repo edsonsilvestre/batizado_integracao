@@ -150,3 +150,4 @@ D:\Edson\Projetos\IntegracaoMELI\MAIN\batizado_integracao\IntegracaoTeste\bin\Mi
 D:\Edson\Projetos\IntegracaoMELI\MAIN\batizado_integracao\IntegracaoTeste\obj\Debug\IntegracaoTeste.csprojResolveAssemblyReference.cache
 D:\Edson\Projetos\IntegracaoMELI\MAIN\batizado_integracao\IntegracaoTeste\obj\Debug\IntegracaoTeste.dll
 D:\Edson\Projetos\IntegracaoMELI\MAIN\batizado_integracao\IntegracaoTeste\obj\Debug\IntegracaoTeste.pdb
+D:\Edson\Projetos\IntegracaoMELI\MAIN\batizado_integracao\IntegracaoTeste\bin\RestSharp.xml

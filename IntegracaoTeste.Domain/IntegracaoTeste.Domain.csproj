@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Results.cs" />
+    <Compile Include="Entities\ProductList.cs" />
     <Compile Include="Entities\Question.cs" />
     <Compile Include="Entities\QuestionAnswer.cs" />
     <Compile Include="Entities\Return.cs" />

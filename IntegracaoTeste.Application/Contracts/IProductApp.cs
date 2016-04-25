@@ -11,7 +11,7 @@ namespace IntegracaoTeste.Application.Contracts
     public interface IProductApp
     {
             Product GetProduct(string productId);
-            List<Product> GetProductsByUserID(string access_token, Meli m, string userID);
+            ProductList GetProductsByUserID(Meli m, string userID);
             Return Anunciar(Meli m, Product product);
     }
 }

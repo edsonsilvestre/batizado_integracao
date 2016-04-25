@@ -21,7 +21,7 @@ using System.Reflection;
 using IntegracaoTeste.Sessions;
 using System.Threading;
 
-namespace IntegracaoBatizado.Controllers
+namespace IntegracaoTeste.Controllers
 {
     public class ProductController : AuthenticatedBaseController
     {
@@ -46,6 +46,21 @@ namespace IntegracaoBatizado.Controllers
             _listingTypeApp = NinjectWebCommon.Kernel.Get<IListingTypeApp>();
             _questionAnswerApp = NinjectWebCommon.Kernel.Get<IQuestionAnswerApp>();
         }
+        public ActionResult Main()
+        {
+            Autorizar(m);
+
+            var product = _productApp.GetProductsByUserID(m, SessionProfile.Usuario.Id);
+
+            Mapper.CreateMap<ProductList, ProductListModel>();
+            Mapper.AssertConfigurationIsValid();
+
+            var model = Mapper.Map<ProductListModel>(product);
+
+            //CarregarViewBag();
+
+            return View("Main", model);
+        }
 
         public ActionResult Announce()
         {
@@ -62,16 +77,6 @@ namespace IntegracaoBatizado.Controllers
 
         public ActionResult Search()
         {
-            Autorizar(m);
-
-            User user = new User();
-
-            user = _userApp.GetMyUser(m);
-
-            List<Product> produtos = new List<Product>();
-
-            produtos = _productApp.GetProductsByUserID(m.AccessToken, m, user.Id);
-
             return View("Search");
         }
 
