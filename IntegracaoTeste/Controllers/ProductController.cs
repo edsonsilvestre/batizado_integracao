@@ -48,9 +48,9 @@ namespace IntegracaoTeste.Controllers
         }
         public ActionResult Main()
         {
-            Autorizar(m);
+            //AutorizarTeste(SessionProfile.Meli);
 
-            var product = _productApp.GetProductsByUserID(m, SessionProfile.Usuario.Id);
+            var product = _productApp.GetProductsByUserID(SessionProfile.Meli, SessionProfile.Usuario.Id);
 
             Mapper.CreateMap<ProductList, ProductListModel>();
             Mapper.AssertConfigurationIsValid();
@@ -64,11 +64,11 @@ namespace IntegracaoTeste.Controllers
 
         public ActionResult Announce()
         {
-            Autorizar(m);
+            //AutorizarTeste(SessionProfile.Meli);
 
             QuestionAnswer questionAnswers = new QuestionAnswer();
 
-            questionAnswers = _questionAnswerApp.GetQuestionAnswerBySellerId(m, SessionProfile.Usuario.Id);
+            questionAnswers = _questionAnswerApp.GetQuestionAnswerBySellerId(SessionProfile.Meli, SessionProfile.Usuario.Id);
 
             CarregarViewBag();
 
@@ -82,7 +82,7 @@ namespace IntegracaoTeste.Controllers
 
         public ActionResult Filtrar(string Id)
         {
-            Autorizar(m);
+            //AutorizarTeste(SessionProfile.Meli);
 
             //MLA600190449
             var product = _productApp.GetProduct(Id);
@@ -97,14 +97,14 @@ namespace IntegracaoTeste.Controllers
 
         public ActionResult Anunciar(ProductModel model)
         {
-            Autorizar(m);
+            //AutorizarTeste(SessionProfile.Meli);
 
             Mapper.CreateMap<ProductModel, Product>();
             Mapper.AssertConfigurationIsValid();
 
             var product = Mapper.Map<Product>(model);
 
-            Return retorno = _productApp.Anunciar(m, product);
+            Return retorno = _productApp.Anunciar(SessionProfile.Meli, product);
 
             if (retorno.Message.Split(';').Count() > 1)
             {
@@ -121,9 +121,9 @@ namespace IntegracaoTeste.Controllers
         {
             List<ChildrenCategory> categorias = new List<ChildrenCategory>();
 
-            Autorizar(m);
+            //AutorizarTeste(SessionProfile.Meli);
 
-            categorias = _categoryApp.GetChildrenCategoryById(m, "MLA", Id);
+            categorias = _categoryApp.GetChildrenCategoryById(SessionProfile.Meli, "MLA", Id);
 
             IEnumerable<SelectListItem> categoriasData = null;
 
@@ -147,10 +147,10 @@ namespace IntegracaoTeste.Controllers
             items.Add(new SelectListItem { Text = "Usado", Value = "used" });
             ViewBag.Conditions = items;
 
-            Autorizar(m);
+            //AutorizarTeste(SessionProfile.Meli);
 
             List<Category> categorias = new List<Category>();
-            categorias = _categoryApp.GetCategoriesByCountry(m, "MLA");
+            categorias = _categoryApp.GetCategoriesByCountry(SessionProfile.Meli, "MLA");
 
             Category blankCategory = new Category();
             blankCategory.Name = "Selecione uma categoria";
@@ -163,7 +163,7 @@ namespace IntegracaoTeste.Controllers
             ViewBag.Categories = categorias;
 
             List<Currency> currencies = new List<Currency>();
-            currencies = _currencyApp.GetCurrencies(m);
+            currencies = _currencyApp.GetCurrencies(SessionProfile.Meli);
 
             Currency blankCurrency = new Currency();
             blankCurrency.Description = "Selecione uma moeda";
@@ -176,7 +176,7 @@ namespace IntegracaoTeste.Controllers
             ViewBag.Currencies = currencies;
 
             List<ListingType> listingTypes = new List<ListingType>();
-            listingTypes = _listingTypeApp.GetListingTypesByCountry(m, "MLA");
+            listingTypes = _listingTypeApp.GetListingTypesByCountry(SessionProfile.Meli, "MLA");
 
             ListingType blankListingType = new ListingType();
             blankListingType.Name = "Selecione um tipo de anúncio";

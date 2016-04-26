@@ -16,5 +16,7 @@ namespace IntegracaoTeste.Domain.Entities
         public string country_id { get; set; }
         public string email { get; set; }
         public string code { get; set; }
+        public string refreshToken { get; set; }
+        public string accessToken { get; set; }
     }
 }

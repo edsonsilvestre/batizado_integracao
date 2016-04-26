@@ -43,7 +43,7 @@ namespace IntegracaoTeste.Controllers
 
         public ActionResult QuestionAnswer()
         {
-            Autorizar(m);
+            ////AutorizarTeste(SessionProfile.Meli);
 
             using (SqlConnection openCon = new SqlConnection("Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=IntegracaoBatizado;Data Source=ED-NOTE"))
             {
@@ -61,7 +61,7 @@ namespace IntegracaoTeste.Controllers
                 }
             }
 
-            var questionAnswers = _questionAnswerApp.GetQuestionAnswerBySellerId(m, SessionProfile.Usuario.Id);
+            var questionAnswers = _questionAnswerApp.GetQuestionAnswerBySellerId(SessionProfile.Meli, SessionProfile.Usuario.Id);
 
             Mapper.CreateMap<QuestionAnswer, QuestionAnswerModel>();
             Mapper.AssertConfigurationIsValid();
@@ -72,7 +72,7 @@ namespace IntegracaoTeste.Controllers
 
             foreach(Question question in model.Questions)
             {
-                user = _userApp.GetUserById(m, question.from.Id);
+                user = _userApp.GetUserById(SessionProfile.Meli, question.from.Id);
                 question.from.Name = user.nickname;
             }
             
@@ -81,9 +81,9 @@ namespace IntegracaoTeste.Controllers
 
         public ActionResult Answer(string id, string descricao)
         {
-            Autorizar(m);
+            ////AutorizarTeste(SessionProfile.Meli);
 
-            Return retorno = _questionAnswerApp.Answer(m, id, descricao);
+            Return retorno = _questionAnswerApp.Answer(SessionProfile.Meli, id, descricao);
 
             if (retorno.Message.Split(';').Count() > 1)
             {

@@ -50,7 +50,7 @@ namespace IntegracaoTeste.Controllers
 
             if(SessionProfile.Usuario.Id == null)
             {
-                Autorizar(m);
+                //AutorizarTeste(SessionProfile.Meli);
                 
                 SessionProfile.Usuario = _userApp.GetMyUser(m);
             }

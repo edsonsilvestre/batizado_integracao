@@ -11,3 +11,4 @@ D:\Edson\Projetos\IntegracaoMELI\MAIN\batizado_integracao\IntegracaoTeste.Domain
 D:\Edson\Projetos\IntegracaoMELI\MAIN\batizado_integracao\IntegracaoTeste.Domain\bin\Debug\System.Reflection.TypeExtensions.dll
 D:\Edson\Projetos\IntegracaoMELI\MAIN\batizado_integracao\IntegracaoTeste.Domain\obj\Debug\IntegracaoTeste.Domain.dll
 D:\Edson\Projetos\IntegracaoMELI\MAIN\batizado_integracao\IntegracaoTeste.Domain\obj\Debug\IntegracaoTeste.Domain.pdb
+D:\Edson\Projetos\IntegracaoMELI\MAIN\batizado_integracao\IntegracaoTeste.Domain\obj\Debug\IntegracaoTeste.Domain.csprojResolveAssemblyReference.cache
