@@ -20,3 +20,4 @@ D:\Edson\Projetos\IntegracaoMELI\MAIN\batizado_integracao\IntegracaoTeste.Applic
 D:\Edson\Projetos\IntegracaoMELI\MAIN\batizado_integracao\IntegracaoTeste.Application\obj\Debug\IntegracaoTeste.Application.csprojResolveAssemblyReference.cache
 D:\Edson\Projetos\IntegracaoMELI\MAIN\batizado_integracao\IntegracaoTeste.Application\obj\Debug\IntegracaoTeste.Application.dll
 D:\Edson\Projetos\IntegracaoMELI\MAIN\batizado_integracao\IntegracaoTeste.Application\obj\Debug\IntegracaoTeste.Application.pdb
+D:\Edson\Projetos\IntegracaoMELI\MAIN\batizado_integracao\IntegracaoTeste.Application\bin\Debug\net-sdk.pdb

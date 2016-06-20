@@ -96,7 +96,6 @@ D:\Edson\Projetos\IntegracaoMELI\MAIN\batizado_integracao\IntegracaoTeste\bin\Mi
 D:\Edson\Projetos\IntegracaoMELI\MAIN\batizado_integracao\IntegracaoTeste\bin\Microsoft.Owin.Security.OAuth.dll
 D:\Edson\Projetos\IntegracaoMELI\MAIN\batizado_integracao\IntegracaoTeste\bin\Microsoft.Owin.Security.Twitter.dll
 D:\Edson\Projetos\IntegracaoMELI\MAIN\batizado_integracao\IntegracaoTeste\bin\Microsoft.Web.Infrastructure.dll
-D:\Edson\Projetos\IntegracaoMELI\MAIN\batizado_integracao\IntegracaoTeste\bin\net-sdk.dll
 D:\Edson\Projetos\IntegracaoMELI\MAIN\batizado_integracao\IntegracaoTeste\bin\Newtonsoft.Json.dll
 D:\Edson\Projetos\IntegracaoMELI\MAIN\batizado_integracao\IntegracaoTeste\bin\Ninject.dll
 D:\Edson\Projetos\IntegracaoMELI\MAIN\batizado_integracao\IntegracaoTeste\bin\Ninject.Web.Common.dll
@@ -151,3 +150,5 @@ D:\Edson\Projetos\IntegracaoMELI\MAIN\batizado_integracao\IntegracaoTeste\obj\De
 D:\Edson\Projetos\IntegracaoMELI\MAIN\batizado_integracao\IntegracaoTeste\obj\Debug\IntegracaoTeste.dll
 D:\Edson\Projetos\IntegracaoMELI\MAIN\batizado_integracao\IntegracaoTeste\obj\Debug\IntegracaoTeste.pdb
 D:\Edson\Projetos\IntegracaoMELI\MAIN\batizado_integracao\IntegracaoTeste\bin\RestSharp.xml
+D:\Edson\Projetos\IntegracaoMELI\MAIN\batizado_integracao\IntegracaoTeste\bin\net-sdk.dll
+D:\Edson\Projetos\IntegracaoMELI\MAIN\batizado_integracao\IntegracaoTeste\bin\net-sdk.pdb

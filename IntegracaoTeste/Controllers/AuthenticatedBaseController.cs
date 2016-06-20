@@ -73,7 +73,7 @@ namespace IntegracaoTeste.Controllers
         {
             Meli m = new Meli(clientId, clientSecret);
 
-            return m.GetAuthUrl("http://localhost:3000");
+            return m.GetAuthUrl("https://auth.mercadolibre.com.ar", "http://localhost:3000");
         }
         //public void Autorizar(Meli m)
         //{
@@ -126,8 +126,13 @@ namespace IntegracaoTeste.Controllers
             {
                 var token = JsonConvert.DeserializeAnonymousType(response.Content, new { error = "" });
 
-                if(token.error == "invalid_grant")
-                    RefreshToken(m);
+                if (token != null)
+                {
+                    if (token.error == "invalid_grant")
+                        RefreshToken(m);
+                    else
+                        throw new AuthorizationException();
+                }
                 else
                     throw new AuthorizationException();
             }

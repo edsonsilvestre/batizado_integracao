@@ -17,7 +17,7 @@ namespace IntegracaoTeste
 
             Meli m = new Meli(clientId, clientSecret);
 
-            Response.Redirect(m.GetAuthUrl("http://localhost:3000"));
+            Response.Redirect(m.GetAuthUrl("https://auth.mercadolibre.com.ar", "http://localhost:3000"));
         }
     }
 }

@@ -69,13 +69,20 @@
                                                         @question.status
                                                     </td>
                                                     <td>
-                                                        @if (question.status == "UNANSWERED")
+                                                        @if(question != null)
                                                         {
-                                                            <button type="button" class="btn btn-default" onclick="responderPergunta('@question.id', '@question.text');">Responder</button>
-                                                        }
-                                                        else
-                                                        {
-                                                            <button type="button" class="btn btn-default" onclick="visualizarPergunta('@question.id', '@question.text', '@question.answer.text');">Visualizar</button>
+                                                            if (question.status == "UNANSWERED")
+                                                            {
+                                                                <button type="button" class="btn btn-default" onclick="responderPergunta('@question.id', '@question.text');">Responder</button>
+                                                            }
+                                                            else if (question.status != "CLOSED_UNANSWERED")
+                                                            {
+                                                                <button type="button" class="btn btn-default" onclick="visualizarPergunta('@question.id', '@question.text', '@question.answer.text');">Visualizar</button>
+                                                            }
+                                                            else
+                                                            {
+                                                                <button type="button" class="btn btn-default" onclick="visualizarPergunta('@question.id', '@question.text', 'PERGUNTA FECHADA SEM RESPOSTA.');">Visualizar</button>
+                                                            }
                                                         }
                                                     </td>
                                                 </tr>
